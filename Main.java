@@ -1,98 +1,53 @@
-// Student class models a real student object
-class Student {
-    // Properties for the student
-    private String name;
-    private int age;
-    private String email;
-    private String phoneNumber;
-    private String stage;
-    private String[] registeredCourses;
-
-    // Constructor that accepts all properties as parameters
-    public Student(String name, int age, String email, String phoneNumber, String stage, String[] registeredCourses) {
-        this.name = name;
-        this.age = age;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.stage = stage;
-        this.registeredCourses = registeredCourses;
-    }
-
-    // Method that prints all student information
-    public void printMe() {
-        System.out.println("Student Information");
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Email: " + email);
-        System.out.println("Phone Number: " + phoneNumber);
-        System.out.println("Stage: " + stage);
-
-        System.out.println("Registered Courses:");
-        for (int i = 0; i < registeredCourses.length; i++) {
-            System.out.println((i + 1) + ". " + registeredCourses[i]);
-        }
-
-        System.out.println();
-    }
-}
-
-// Main class runs the program
+// Main class starts the program
 public class Main {
     public static void main(String[] args) {
-        // Courses for the first student
-        String[] studentOneCourses = {
-            "Object Oriented Programming",
-            "Applied Calculus"
-        };
 
-        // Courses for the second student
-        String[] studentTwoCourses = {
-            "Java Programming",
-            "Database Systems",
-            "Web Development"
-        };
+        // Create DateOfBirth objects
+        DateOfBirth dob1 = new DateOfBirth(3, 15, 2002);
+        DateOfBirth dob2 = new DateOfBirth(7, 22, 2001);
+        DateOfBirth dob3 = new DateOfBirth(11, 5, 2003);
 
-        // Courses for the third student
-        String[] studentThreeCourses = {
-            "Computer Science Basics",
-            "Networking",
-            "Software Development",
-            "Data Structures",
-            "Cybersecurity",
-            "Project Management"
-        };
+        // Create course arrays with different course counts
+        String[] courses1 = {"Object Oriented Programming", "Applied Calculus"};
 
-        // Creating three Student objects using the constructor
-        Student studentOne = new Student(
-            "Willie Harvey",
-            24,
-            "willie.harvey@email.com",
-            "555-123-4567",
-            "Junior",
-            studentOneCourses
+        String[] courses2 = {"Object Oriented Programming", "English Composition", "Computer Science"};
+
+        String[] courses3 = {"Object Oriented Programming", "Applied Calculus", "Database Systems", "Web Development"};
+
+        // Create three Student objects
+        Student student1 = new Student(
+                "John Smith",
+                dob1,
+                "johnsmith@example.com",
+                "555-111-2222",
+                "Sophomore",
+                courses1
         );
 
-        Student studentTwo = new Student(
-            "Maria Johnson",
-            21,
-            "maria.johnson@email.com",
-            "555-234-5678",
-            "Sophomore",
-            studentTwoCourses
+        Student student2 = new Student(
+                "Maria Johnson",
+                dob2,
+                "mariajohnson@example.com",
+                "555-333-4444",
+                "Junior",
+                courses2
         );
 
-        Student studentThree = new Student(
-            "James Carter",
-            23,
-            "james.carter@email.com",
-            "555-345-6789",
-            "Senior",
-            studentThreeCourses
+        Student student3 = new Student(
+                "David Brown",
+                dob3,
+                "davidbrown@example.com",
+                "555-555-6666",
+                "Freshman",
+                courses3
         );
 
-        // Printing each student's information
-        studentOne.printMe();
-        studentTwo.printMe();
-        studentThree.printMe();
+        // Display full student information
+        student1.printMe();
+        student2.printMe();
+        student3.printMe();
+
+        // Display the total number of created students
+        Student.displayStudentCounter();
     }
 }
